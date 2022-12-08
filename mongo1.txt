@@ -1,0 +1,2 @@
+Start the mongo db
+_> mongo

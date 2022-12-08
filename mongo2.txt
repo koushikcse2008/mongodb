@@ -1,0 +1,3 @@
+Display all 
+
+_>show dbs
