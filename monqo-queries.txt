@@ -1,0 +1,15 @@
+# Start the mongo db
+_> mongo
+
+# Display all db
+_>show dbs
+
+# Select db
+_> use db_name
+
+# See all the tables in a database
+_> show collections
+
+# Show all data in a collection/table
+_> db.pages.find().pretty()
+
