@@ -1,0 +1,13 @@
+Follow the below steps:
+
+1) download the mongo db software
+URL: https://nodejs.org/en/download/package-manager
+
+2) Install the software with default selected value 
+
+3) after install, set the environment variable
+
+4) after that run the mongodb using the below command
+open cmd => mongo
+
+
