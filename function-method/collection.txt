@@ -1,0 +1,37 @@
+#collection is the term refers as table in sql
+
+To create collection:
+$db.createCollection("posts");
+
+Output:
+{ "ok" : 1 }
+
+After creating the collection, you must have to enter a document to view the collection
+To add data refer to the insert.tx file
+
+To create a collection withother options:
+$db.createCollection("posts", {capped: true, autoIndexId: true, size: 6142800, max: 10000});
+
+Output:
+{
+        "note" : "The autoIndexId option is deprecated and will be removed in a future release",
+        "ok" : 1
+}
+
+capped:
+If true, enable a capped collection. Capped collection is a fixed size collection that automatically overwrites it's oldest entries when it reaches it's maximum size. If we specify true, you need to specify size parameter also.
+
+autoIndexID:
+If true, automatically create index on _id field. Default value is false.
+
+size:
+Specifies a maximum size in bytes for a capped collection. If capped collection true, then you need to specify this field also.
+
+max:
+Specifies the maximum number of documents allowed in the capped collection.
+
+To drop a collection:
+$db.posts.drop();
+
+Output:
+true

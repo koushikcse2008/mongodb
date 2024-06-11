@@ -1,0 +1,184 @@
+# There are separate process of inserting data into the collection
+#find() pretty() findOne()
+
+#result set
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc2"), "name" : "test 3", "age" : 3, "likes" : 3, "comments" : 3, "share" : 3 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc3"), "name" : "test 4", "age" : 4, "likes" : 4, "comments" : 4, "share" : 4 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc4"), "name" : "test 5", "age" : 5, "likes" : 5, "comments" : 5, "share" : 5 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "name" : "test 6", "age" : 6, "likes" : 6, "comments" : 6, "share" : 6 }
+
+#find()
+$db.table1.find()
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+
+
+#find and pretty
+$db.table1.find().pretty()
+
+Output:
+{
+        "_id" : ObjectId("66669e46d0ce08ded78d356f"),
+        "name" : "test 1",
+        "age" : 1,
+        "likes" : 1,
+        "comments" : 1,
+        "share" : 1
+}
+{
+        "_id" : ObjectId("6666e778a715eb1830fc9fc1"),
+        "name" : "test 2",
+        "age" : 2,
+        "likes" : 2,
+        "comments" : 2,
+        "share" : 2
+}
+
+
+#findOne()
+$db.table1.findOne({age: 1})
+
+Output:
+{
+        "_id" : ObjectId("66669e46d0ce08ded78d356f"),
+        "name" : "test 1",
+        "age" : 1,
+        "likes" : 1,
+        "comments" : 1,
+        "share" : 1
+}
+
+
+#equal to
+$db.table1.find({age: {$eq: 1}})
+
+Output:
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+
+
+#less than
+$db.table1.find({age: {$lt: 2}})
+
+Output:
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+
+
+#less than equal
+$db.table1.find({age: {$lte: 2}})
+
+Output:
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+
+
+#greater than
+$db.table1.find({age: {$gt: 5}})
+
+Output:
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "name" : "test 6", "age" : 6, "likes" : 6, "comments" : 6, "share" : 6 }
+
+
+#greater than equal
+$db.table1.find({age: {$gte: 5}})
+
+Output:
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc4"), "name" : "test 5", "age" : 5, "likes" : 5, "comments" : 5, "share" : 5 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "name" : "test 6", "age" : 6, "likes" : 6, "comments" : 6, "share" : 6 }
+
+
+#not equal
+$db.table1.find({age: {$ne: 5}})
+
+Output:
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc2"), "name" : "test 3", "age" : 3, "likes" : 3, "comments" : 3, "share" : 3 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc3"), "name" : "test 4", "age" : 4, "likes" : 4, "comments" : 4, "share" : 4 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "name" : "test 6", "age" : 6, "likes" : 6, "comments" : 6, "share" : 6 }
+
+
+#in values
+$db.table1.find({age: {$in: [5,6]}})
+
+Output:
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc4"), "name" : "test 5", "age" : 5, "likes" : 5, "comments" : 5, "share" : 5 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "name" : "test 6", "age" : 6, "likes" : 6, "comments" : 6, "share" : 6 }
+
+
+#not in values
+$db.table1.find({age: {$nin: [2,3,4,5,6]}})
+
+Output:
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+
+
+#and condition
+$db.table1.find({$and: [{age: 2},{likes: 2}]})
+
+Output:
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+
+
+#or condition
+$db.table1.find({$or: [{age: 2},{likes: 4}]})
+
+Output:
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc3"), "name" : "test 4", "age" : 4, "likes" : 4, "comments" : 4, "share" : 4 }
+
+
+#and + or condition
+$db.table1.find({likes: { $gt: 5 }, $or: [{age: 6}, {comments: 4}]})
+where likes > 5 AND (age=6 OR comments=4)
+
+Output:
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "name" : "test 6", "age" : 6, "likes" : 6, "comments" : 6, "share" : 6 }
+
+
+#Not condition
+$db.table1.find({age: {$not: {$gt: 2}}})
+
+Output:
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+
+
+#Nor condition
+$db.table1.find({$nor: [{age: 4}]})
+
+Output:
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc2"), "name" : "test 3", "age" : 3, "likes" : 3, "comments" : 3, "share" : 3 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc4"), "name" : "test 5", "age" : 5, "likes" : 5, "comments" : 5, "share" : 5 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "name" : "test 6", "age" : 6, "likes" : 6, "comments" : 6, "share" : 6 }
+
+
+#limit condition
+$db.table1.find().limit(1)
+
+Output:
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+
+
+#skip condition
+$db.table1.find().limit(2).skip(1);
+
+Output:
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+
+
+#sort condition
+$db.table1.find().sort({age: -1})
+-1 for decending and 1 for ascending
+
+Output:
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "name" : "test 6", "age" : 6, "likes" : 6, "comments" : 6, "share" : 6 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc4"), "name" : "test 5", "age" : 5, "likes" : 5, "comments" : 5, "share" : 5 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc3"), "name" : "test 4", "age" : 4, "likes" : 4, "comments" : 4, "share" : 4 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc2"), "name" : "test 3", "age" : 3, "likes" : 3, "comments" : 3, "share" : 3 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+

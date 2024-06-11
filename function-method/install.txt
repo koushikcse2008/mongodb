@@ -10,4 +10,18 @@ URL: https://nodejs.org/en/download/package-manager
 4) after that run the mongodb using the below command
 open cmd => mongo
 
+After install use below commands to perform some checks:
+
+$show dbs/databases
+used to display all the databases present
+
+$use db_name
+used to select the database you want to use
+
+$db
+used to check current db name
+
+$db.version()
+used to check the database version
+
 

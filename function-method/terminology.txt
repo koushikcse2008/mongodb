@@ -1,0 +1,13 @@
+# As this is no-sql database, so there is terminology named cpmpared to mysql
+
+#database is same as sql and no-sql
+
+#table in sql but collection is no-sql
+
+#row in sql but document in no-sql
+
+#column in sql but field in no-sql
+
+#GroupBy in sql but aggregation in no-sql
+
+#table joins in sql but embeded document in bno-sql

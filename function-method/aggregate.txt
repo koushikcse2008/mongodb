@@ -1,0 +1,55 @@
+#Aggregate Method: It is special method and also popular
+
+#sum method
+$db.table1.aggregate([{$group: {_id: "$_id", sum_likes: {$sum: "$likes"}, sum_comments: {$sum: "$comments"}}}]);
+
+Output:
+{ "_id" : 5, "num_likes" : 5 }
+{ "_id" : 1, "num_likes" : 1 }
+{ "_id" : 6, "num_likes" : 6 }
+{ "_id" : 3, "num_likes" : 3 }
+{ "_id" : 2, "num_likes" : 2 }
+{ "_id" : 4, "num_likes" : 4 }
+
+
+#avg method
+$db.table1.aggregate([{$group: {_id: "$_id", num_likes: {$avg: "$likes"}, sum_comments: {$sum: "$comments"}}}]);
+
+Output:
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc2"), "num_likes" : 3, "sum_comments" : 3 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "num_likes" : 6, "sum_comments" : 6 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc3"), "num_likes" : 4, "sum_comments" : 4 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc4"), "num_likes" : 5, "sum_comments" : 5 }
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "num_likes" : 1, "sum_comments" : 1 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "num_likes" : 2, "sum_comments" : 2 }
+
+#min method
+$db.table1.aggregate([{$group: {_id: "$_id", num_likes: {$min: "$likes"}}}]);
+
+Output:
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "num_likes" : 1 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "num_likes" : 6 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc3"), "num_likes" : 4 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc4"), "num_likes" : 5 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "num_likes" : 2 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc2"), "num_likes" : 3 }
+
+
+#max method
+$db.table1.aggregate([{$group: {_id: "$_id", num_likes: {$max: "$likes"}}}]);
+
+Output:
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc4"), "num_likes" : 5 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc1"), "num_likes" : 2 }
+{ "_id" : ObjectId("6666e778a715eb1830fc9fc2"), "num_likes" : 3 }
+{ "_id" : ObjectId("66669e46d0ce08ded78d356f"), "num_likes" : 1 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc5"), "num_likes" : 6 }
+{ "_id" : ObjectId("6666e7b4a715eb1830fc9fc3"), "num_likes" : 4 }
+
+
+
+
+
+
+
+

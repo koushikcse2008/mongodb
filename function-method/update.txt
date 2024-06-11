@@ -1,0 +1,43 @@
+#There are separate process of update a record
+#update() save() findOneAndUpdate() updateOne() updateMany()
+
+#update()
+$db.table1.update({name: "test 1"}, {$set: { "name": "test 1 update" }});
+
+Output:
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+#save()
+$db.table1.save({ "_id": ObjectId("6665f272adb490754c0cadd1"), "name": "test 22","age": 22, "likes":22, "comments": 22, "share": 22});
+
+Output:
+WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+
+NOTE: The save() method replaces the existing documents with the new document passed in the save()
+
+#findOneAndUpdate()
+$db.table1.findOneAndUpdate({name: "test 3"}, {$set: { name: "test 3 update", "age": 33, "likes":33, "comments": 33, "share": 33 }});
+
+Output:
+{
+        "_id" : ObjectId("6665f57aadb490754c0cadd2"),
+        "name" : "test 3",
+        "age" : 3,
+        "likes" : 3,
+        "comments" : 3,
+        "share" : 3
+}
+
+NOTE: It finds the records and update them. Also it returns the founded before update record 
+
+#updateOne()
+$db.table1.updateOne({name: "test 4"},{$set:{name: "test 4 update"}});
+
+Output:
+{ "acknowledged" : true, "matchedCount" : 1, "modifiedCount" : 1 }
+
+#updateMany()
+$db.table1.updateMany({age: {$gte: 0}},{$set: {age: 6}});
+
+Output:
+{ "acknowledged" : true, "matchedCount" : 5, "modifiedCount" : 5 }

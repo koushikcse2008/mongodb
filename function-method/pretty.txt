@@ -1,0 +1,30 @@
+#To make output more readable
+
+#find
+$db.table1.find();
+
+Output:
+{ "_id" : ObjectId("66669726d0ce08ded78d356d"), "name" : "test 1", "age" : 1, "likes" : 1, "comments" : 1, "share" : 1 }
+{ "_id" : ObjectId("66669726d0ce08ded78d356e"), "name" : "test 2", "age" : 2, "likes" : 2, "comments" : 2, "share" : 2 }
+
+#pretty()
+$db.table1.find().pretty();
+
+Output:
+{
+        "_id" : ObjectId("66669726d0ce08ded78d356d"),
+        "name" : "test 1",
+        "age" : 1,
+        "likes" : 1,
+        "comments" : 1,
+        "share" : 1
+}
+{
+        "_id" : ObjectId("66669726d0ce08ded78d356e"),
+        "name" : "test 2",
+        "age" : 2,
+        "likes" : 2,
+        "comments" : 2,
+        "share" : 2
+}
+

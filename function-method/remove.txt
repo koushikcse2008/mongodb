@@ -1,0 +1,27 @@
+#Different remove process
+#remove() deleteOne() deleteMany()
+
+#to remove a single record
+$db.table1.remove({name: "test 1 update"});
+
+Output:
+WriteResult({ "nRemoved" : 1 })
+
+#to remove all record
+$db.table1.remove({})
+
+Output: 
+WriteResult({ "nRemoved" : 4 })
+
+#deleteOne
+$db.table1.deleteOne( { _id: ObjectId("66669726d0ce08ded78d356d") } );
+
+Output:
+{ "acknowledged" : true, "deletedCount" : 1 }
+
+#deleteMany
+$db.table1.deleteMany({"age" : 2});
+
+Output:
+{ "acknowledged" : true, "deletedCount" : 2 }
+

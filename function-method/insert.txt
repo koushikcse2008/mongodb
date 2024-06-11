@@ -1,10 +1,10 @@
-# There is separate process of inserting data into the collection
+# There are separate process of inserting data into the collection
 #insert insertOne insertMany
 
 #insert
 $db.table1.insert([{name: "test 1", age: 1, likes: 1, comments: 1, share: 1},{name: "test 2",  age: 2, likes: 2, comments: 2, share: 2}]);
 
-o/p =>
+Output =>
 BulkWriteResult({
         "writeErrors" : [ ],
         "writeConcernErrors" : [ ],
@@ -19,7 +19,7 @@ BulkWriteResult({
 #insertOne
 $db.table1.insertOne({name: "test 3", age: 3, likes: 3, comments: 3, share: 3});
 
-o/p =>
+Output =>
 {
         "acknowledged" : true,
         "insertedId" : ObjectId("6665f57aadb490754c0cadd2")
@@ -28,7 +28,7 @@ o/p =>
 #insertMany
 $db.table1.insertMany([{name: "test 4", age: 4, likes: 4, comments: 4, share: 4},{name: "test 5",  age: 5, likes: 5, comments: 5, share: 5}]);
 
-o/p =>
+Output =>
 {
         "acknowledged" : true,
         "insertedIds" : [
